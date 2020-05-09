@@ -1,6 +1,7 @@
 (defconst org-roam-packages
   '(org-roam
     org-roam-bibtex
+    org-noter
     (org-fc :location local)))
 
 (defun org-roam/init-org-roam ()
@@ -53,6 +54,9 @@
         "rci" 'org-fc-hydra-type/body)
     )
   ))
+
+(defun org-roam/init-org-noter ()
+  (use-package org-noter))
 
 (defun org-roam/post-init-org ()
   (setq org-modules (quote (org-protocol)))
