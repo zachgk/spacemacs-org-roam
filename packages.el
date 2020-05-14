@@ -1,6 +1,7 @@
 (defconst org-roam-packages
   '(org-roam
     org-roam-bibtex
+    (company-org-roam :location (recipe :fetcher github :repo "org-roam/company-org-roam"))
     org-noter
     (org-fc :location local)))
 
@@ -10,6 +11,7 @@
     (after-init . org-roam-mode)
     :init
     (progn
+      (setq org-roam-title-include-subdirs t)
       (spacemacs/declare-prefix "ar" "org-roam")
       (spacemacs/set-leader-keys
        "arl" 'org-roam
@@ -40,6 +42,14 @@
     :hook
     (org-roam-mode . org-roam-bibtex-mode)))
 
+(defun org-roam/init-company-org-roam ()
+  (use-package company-org-roam
+    :init
+    (progn
+      (spacemacs|add-company-backends :backends 'company-org-roam :modes org-mode)
+      )))
+
+
 (defun org-roam/init-org-fc ()
   (use-package org-fc
     :config
@@ -56,7 +66,12 @@
   ))
 
 (defun org-roam/init-org-noter ()
-  (use-package org-noter))
+  (use-package org-noter
+    :init
+    (progn
+      (spacemacs/set-leader-keys-for-major-mode 'org-mode
+        "n" 'org-noter
+    ))))
 
 (defun org-roam/post-init-org ()
   (setq org-modules (quote (org-protocol)))
