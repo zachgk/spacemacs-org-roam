@@ -1,0 +1,45 @@
+#+TITLE: Org-Roam layer
+
+#+TAGS: emacs|layer
+
+* Description
+This is a layer for [[https://www.spacemacs.org/][spacemacs]] to support [[https://github.com/org-roam/org-roam][org-roam]] and other note taking projects in the ecosystem.
+
+* Features:
+- org-roam
+- org-roam-bibtex
+- company-org-roam
+- org-noter
+- org-fc
+
+* Installation
+  
+First, clone the spacemacs-org-roam repo to =~/emacs.d/private/org-roam=.
+
+Then, you must clone org-fc to the directory =local/org-fc= (in full =~/.emacs.d/private/org-roam/local/org-fc=).
+
+Then, add it to your .spacemacs configuration-layers with (using your notes directory):
+#+BEGIN_SRC emacs-lisp
+  (setq dotspacemacs-configuration-layers '(
+    (org-roam :variables
+              org-roam-directory "/data/notes/orgRoam"
+              org-fc-directories '("/data/notes/orgRoam"))))
+#+END_SRC
+
+You may also want to add additional variables to your org layer such as:
+#+BEGIN_SRC emacs-lisp
+  (setq dotspacemacs-configuration-layers '(
+     (org :variables
+          org-want-todo-bindings t
+          org-enable-org-journal-support t
+          org-journal-date-prefix "#+TITLE: "
+          org-journal-file-format "%Y-%m-%d.org"
+          org-journal-dir "/data/notes/orgRoam/journal/"
+          org-journal-date-format "%A, %d %B %Y"
+          org-extend-today-until 5
+          org-download-image-dir "/data/notes/orgRoam/downloads"
+          org-ref-default-bibliography '("/data/notes/orgRoam/papers/references.bib")
+          org-agenda-files '("/data/notes/orgRoam/agenda.org")
+          org-journal-enable-agenda-integration t
+          org-ref-pdf-directory "/data/notes/orgRoam/papers/pdfs/")))
+#+END_SRC
