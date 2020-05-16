@@ -74,9 +74,9 @@
     ))))
 
 (defun org-roam/post-init-org ()
-  (setq org-modules (quote (org-protocol)))
-  (require 'org-protocol))
+  (require 'org-protocol)
+  (add-to-list 'org-modules 'org-protocol))
 
 (defun org-roam/post-init-org-roam ()
-  (setq org-modules (quote (org-roam-protocol)))
-  (require 'org-roam-protocol))
+  (require 'org-roam-protocol)
+  (add-to-list 'org-modules 'org-roam-protocol))
