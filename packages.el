@@ -12,27 +12,34 @@
     :init
     (progn
       (setq org-roam-title-include-subdirs t)
+
       (spacemacs/declare-prefix "ar" "org-roam")
       (spacemacs/set-leader-keys
-       "arl" 'org-roam
-       "arf" 'org-roam-find-file
-       "arg" 'org-roam-graph)
+        "arl" 'org-roam
+        "arf" 'org-roam-find-file
+        "arg" 'org-roam-graph)
 
       (spacemacs/declare-prefix-for-mode 'org-journal-mode "mr" "org-roam")
       (spacemacs/set-leader-keys-for-major-mode 'org-journal-mode
-                                                "rl" 'org-roam
-                                                "rb" 'org-roam-switch-to-buffer
-                                                "rf" 'org-roam-find-file
-                                                "ri" 'org-roam-insert
-                                                "rg" 'org-roam-graph)
+        "rl" 'org-roam
+        "rb" 'org-roam-switch-to-buffer
+        "rf" 'org-roam-find-file
+        "rF" 'org-roam-find-file-immediate
+        "ri" 'org-roam-insert
+        "rI" 'org-roam-insert-immediate
+        "rR" 'org-roam-random
+        "rg" 'org-roam-graph)
       (spacemacs/declare-prefix-for-mode 'org-mode "mr" "org-roam")
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
-                                                "rl" 'org-roam
-                                                "rb" 'org-roam-switch-to-buffer
-                                                "rf" 'org-roam-find-file
-                                                "ri" 'org-roam-insert
-                                                "rg" 'org-roam-graph)))
-  )
+        "rl" 'org-roam
+        "rb" 'org-roam-switch-to-buffer
+        "rf" 'org-roam-find-file
+        "rF" 'org-roam-find-file-immediate
+        "ri" 'org-roam-insert
+        "rI" 'org-roam-insert-immediate
+        "rR" 'org-roam-random
+        "rg" 'org-roam-graph)
+      )))
 
 (defun org-roam/init-org-roam-bibtex ()
   (use-package org-roam-bibtex
@@ -59,8 +66,8 @@
         "rcr" 'org-fc-review-all
         "rcu" 'org-fc-update
         "rci" 'org-fc-hydra-type/body)
-    )
-  ))
+      )
+    ))
 
 (defun org-roam/init-org-noter ()
   (use-package org-noter
@@ -68,7 +75,7 @@
     (progn
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "n" 'org-noter
-    ))))
+        ))))
 
 (defun org-roam/post-init-org ()
   (require 'org-protocol)
