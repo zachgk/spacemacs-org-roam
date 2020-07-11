@@ -27,7 +27,7 @@
         "rF" 'org-roam-find-file-immediate
         "ri" 'org-roam-insert
         "rI" 'org-roam-insert-immediate
-        "rR" 'org-roam-random
+        "rR" 'org-roam-random-note
         "rg" 'org-roam-graph)
       (spacemacs/declare-prefix-for-mode 'org-mode "mr" "org-roam")
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
@@ -37,7 +37,7 @@
         "rF" 'org-roam-find-file-immediate
         "ri" 'org-roam-insert
         "rI" 'org-roam-insert-immediate
-        "rR" 'org-roam-random
+        "rR" 'org-roam-random-note
         "rg" 'org-roam-graph)
       )))
 
