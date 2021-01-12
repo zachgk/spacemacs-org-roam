@@ -1,2 +1,2 @@
 
-(configuration-layer/declare-layer-dependencies '(org))
+(configuration-layer/declare-layer '(org))
