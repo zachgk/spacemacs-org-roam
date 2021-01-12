@@ -15,7 +15,7 @@ This is a layer for [[https://www.spacemacs.org/][spacemacs]] to support [[https
 This package depends on the develop version of spacemacs.
 As the last stable release was Jan 2018, I recommend using develop anyway.
   
-First, clone the spacemacs-org-roam repo to =~/emacs.d/private/org-roam=.
+First, clone the spacemacs-org-roam repo to =~/.emacs.d/private/org-roam=.
 
 Then, you must clone org-fc to the directory =local/org-fc= (in full =~/.emacs.d/private/org-roam/local/org-fc=).
 
