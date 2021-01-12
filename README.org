@@ -6,13 +6,14 @@
 This is a layer for [[https://www.spacemacs.org/][spacemacs]] to support [[https://github.com/org-roam/org-roam][org-roam]] and other note taking projects in the ecosystem.
 
 * Features:
-- org-roam
 - org-roam-bibtex
-- company-org-roam
 - org-noter
 - org-fc
 
 * Installation
+
+This package depends on the develop version of spacemacs.
+As the last stable release was Jan 2018, I recommend using develop anyway.
   
 First, clone the spacemacs-org-roam repo to =~/emacs.d/private/org-roam=.
 
@@ -30,6 +31,8 @@ You may also want to add additional variables to your org layer such as:
 #+BEGIN_SRC emacs-lisp
   (setq dotspacemacs-configuration-layers '(
      (org :variables
+          org-enable-roam-support t
+          org-want-todo-bindings t
           org-want-todo-bindings t
           org-enable-org-journal-support t
           org-journal-date-prefix "#+TITLE: "
@@ -42,4 +45,7 @@ You may also want to add additional variables to your org layer such as:
           org-agenda-files '("/data/notes/orgRoam/agenda.org")
           org-journal-enable-agenda-integration t
           org-ref-pdf-directory "/data/notes/orgRoam/papers/pdfs/")))
+     (org-roam :variables
+               org-roam-directory "/data/notes/orgRoam"
+               org-fc-directories '("/data/notes/orgRoam"))
 #+END_SRC
