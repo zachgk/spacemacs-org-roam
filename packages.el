@@ -1,6 +1,10 @@
 (defconst org-roam-packages
   '(org-roam-bibtex
     org-noter
+    org
+    org-roam
+    (org-journal
+     :location (recipe :fetcher github :repo "dalanicolai/org-journal"))
     (org-fc :location local)))
 
 (defun org-roam/init-org-roam-bibtex ()
@@ -44,22 +48,8 @@
         "n" 'org-noter
         ))))
 
-(defun org-roam/post-init-org-roam ()
-  (spacemacs/set-leader-keys-for-major-mode 'org-journal-mode
-    "rR" 'org-roam-random-note
-    )
-  (spacemacs/declare-prefix-for-mode 'org-mode "mr" "org-roam")
+(defun org-roam/post-init-org ()
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
     "rR" 'org-roam-random-note
-    )
-  (spacemacs/declare-prefix-for-mode 'org-journal-mode "mr" "org-roam")
-  (spacemacs/set-leader-keys-for-major-mode 'org-journal-mode
-    "rb" 'org-roam-switch-to-buffer
-    "rdy" 'org-roam-dailies-yesterday
-    "rdt" 'org-roam-dailies-today
-    "rdT" 'org-roam-dailies-tomorrow
-    "rf" 'org-roam-find-file
-    "rg" 'org-roam-graph
-    "ri" 'org-roam-insert
-    "rI" 'org-roam-insert-immediate
-    "rl" 'org-roam))
+    ))
+
